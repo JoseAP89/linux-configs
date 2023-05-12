@@ -8,8 +8,14 @@ then
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
 fi
 
- if [ ! -d $(eval echo "~")/.vim ]
- then
+if [ ! -d $(eval echo "~")/.vim ]
+then
      curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
      https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  fi
+fi
+
+# enabling fzf key bindings for bash
+source /usr/share/doc/fzf/examples/key-bindings.bash
+# enabling fuzzy autocompletition for bash
+source /usr/share/doc/fzf/examples/completion.bash
+
