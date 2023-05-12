@@ -14,8 +14,10 @@ then
      https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
-# enabling fzf key bindings for bash
-source /usr/share/doc/fzf/examples/key-bindings.bash
-# enabling fuzzy autocompletition for bash
-source /usr/share/doc/fzf/examples/completion.bash
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash &&
+    source ~/.fzf.bash &&
+    # enabling fzf key bindings for bash
+    source /usr/share/doc/fzf/examples/key-bindings.bash &&
+    # enabling fuzzy finder autocompletition for bash, if failded check if it exists
+    source /usr/share/doc/fzf/examples/completion.bash
 
