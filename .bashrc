@@ -4,7 +4,6 @@ export PROMPT_DIRTRIM=2
 
 if [ ! -d $(eval echo "~")/.fzf ] 
 then
-    sudo apt install -y fzf
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
 fi
 
@@ -21,3 +20,11 @@ fi
     # enabling fuzzy finder autocompletition for bash, if failded check if it exists
     source /usr/share/doc/fzf/examples/completion.bash
 
+# installing bash git prompt support
+if [ ! -d "$HOME/.bash-git-prompt" ]; then
+    git clone https://github.com/magicmonty/bash-git-prompt.git ~/.bash-git-prompt --depth=1
+fi
+if [ -f "$HOME/.bash-git-prompt/gitprompt.sh" ]; then
+    GIT_PROMPT_ONLY_IN_REPO=1
+    source $HOME/.bash-git-prompt/gitprompt.sh
+fi
