@@ -2,7 +2,7 @@ export PS1_OLD="\[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;
 export PROMPT_DIRTRIM=2
 # Using highlight (http://www.andre-simon.de/doku/highlight/en/highlight.html)
 
-if [ ! -d $(eval echo "~")/.fzf ] 
+if [ ! -d $(eval echo "~")/.fzf ]
 then
     sudo apt install fzf
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
@@ -14,9 +14,12 @@ then
      https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash &&
-    source ~/.fzf.bash &&
-    # enabling fzf key bindings for bash
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+[ ! -f /usr/share/doc/fzf/examples/completion.bash ] &&
+    sudo touch /usr/share/doc/fzf/examples/key-bindings.bash &&
+    sudo curl https://raw.githubusercontent.com/junegunn/fzf/master/shell/completion.bash >  /usr/share/doc/fzf/examples/completion.bash
+# enabling fzf key bindings for bash
+[ -f ~/.fzf.bash ] && 
     source /usr/share/doc/fzf/examples/key-bindings.bash &&
     # enabling fuzzy finder autocompletition for bash, if failded check if it exists
     source /usr/share/doc/fzf/examples/completion.bash
@@ -29,3 +32,4 @@ if [ -f "$HOME/.bash-git-prompt/gitprompt.sh" ]; then
     GIT_PROMPT_ONLY_IN_REPO=1
     source $HOME/.bash-git-prompt/gitprompt.sh
 fi
+
