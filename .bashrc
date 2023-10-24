@@ -15,9 +15,10 @@ then
 fi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-[ ! -f /usr/share/doc/fzf/examples/completion.bash ] &&
-    sudo touch /usr/share/doc/fzf/examples/key-bindings.bash &&
-    sudo curl https://raw.githubusercontent.com/junegunn/fzf/master/shell/completion.bash >  /usr/share/doc/fzf/examples/completion.bash
+## This should be done manually
+#    sudo touch /usr/share/doc/fzf/examples/key-bindings.bash &&
+#    sudo curl https://raw.githubusercontent.com/junegunn/fzf/master/shell/completion.bash >  /usr/share/doc/fzf/examples/completion.bash
+
 # enabling fzf key bindings for bash
 [ -f ~/.fzf.bash ] && 
     source /usr/share/doc/fzf/examples/key-bindings.bash &&
